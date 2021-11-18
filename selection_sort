@@ -1,0 +1,15 @@
+n = int(input("enter no. of students: "))
+l = []
+for i in range(n):
+    per = int(input("enter percentage of each student: "))
+    l.append(per)
+print("Unsorted percentage of students: ",l)
+
+for i in range(len(l)):
+    min = i
+    for j in range(i+1, len(l)):
+        if l[j] < l[min]:
+            min = j
+
+    (l[i], l[min]) = (l[min], l[i])
+print("Sorted percentage of students: ",l)
