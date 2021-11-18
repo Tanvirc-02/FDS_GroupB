@@ -1,0 +1,17 @@
+n = int(input("Enter no. of students: "))
+l = []
+for i in range(n):
+  per = int(input("Enter percentage of students: "))
+  l.append(per)
+print(l)
+
+i = 0
+while i <= len(l):
+  for i in range(len(l)):
+    if l[i] > l[i+1]:
+      l[i], l[i+1] = l[i+1], l[i]
+      print(l)
+    else:
+      break
+
+print(l[0:5])
