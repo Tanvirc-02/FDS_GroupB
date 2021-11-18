@@ -1,0 +1,39 @@
+def mergeS(l):
+    if len(l)>1:
+        mid = len(l) // 2
+        left = l[:mid]
+        right = l[mid:]
+
+        mergeS(left)
+        mergeS(right)
+
+        i = 0 #for left list
+        j = 0 #for right list
+        k = 0 #for main list
+
+        while i < len(left) and j < len(right):
+            if left[i] < right[j]:
+                l[k] = left[i]
+                i = i+1
+            else:
+                l[k] = right[j]
+                j = j+1
+            k = k + 1
+
+        while i < len(left):
+            l[k] = left[i]
+            i += 1
+            k += 1
+
+        while j < len(right):
+            l[k] = right[j]
+            j += 1
+            k += 1
+n = int(input("enter no. of students: "))
+l = []
+for i in range(n):
+    per = int(input("enter percentage of each student: "))
+    l.append(per)
+print("Unsorted percentage of students: ",l)
+mergeS(l)
+print(l)
